@@ -44,3 +44,4 @@ cp .env.example .env
 ## URL
 
 ※ ローカル環境で実行予定
+<!-- README modified for ER diagram update -->
