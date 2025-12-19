@@ -30,6 +30,14 @@ cp .env.example .env
 
 ※ `.env`ファイル内の環境変数（DB 接続情報など）は、環境に合わせて適宜変更してください。
 
+4. データベースのマイグレーション・シーディングを実行する。
+
+```bash
+php artisan migrate --seed
+```
+
+※ テーブル作成（migration）とダミーデータ作成（seeding）を同時に実行します。
+
 ## 使用技術(実行環境)
 
 - PHP 8.1.33
@@ -44,4 +52,3 @@ cp .env.example .env
 ## URL
 
 ※ ローカル環境で実行予定
-<!-- README modified for ER diagram update -->
