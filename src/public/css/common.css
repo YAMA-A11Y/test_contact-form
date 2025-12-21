@@ -1,0 +1,62 @@
+/* common.css */
+
+/* 全体の基本 */
+body {
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+    color: #6b5b4f;
+    background-color: #ffffff;
+}
+
+/* ヘッダー */
+header {
+    text-align: center;
+    padding: 24px 0 10px;
+    border-bottom: 1px solid #eee;
+}
+
+header h1 {
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #9a8776;
+    font-size: 26px;
+}
+
+/* メイン全体 */
+main {
+    padding: 24px 16px 60px;
+}
+
+/* 見出し（Contact / Confirm のh2） */
+h2 {
+    text-align: center;
+    margin: 0 0 24px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #b7a79a;
+}
+
+/* 必須マーク */
+.required {
+    color: #d9534f;
+    font-size: 0.9em;
+    margin-left: 6px;
+}
+
+/* ボタン共通（ページCSS側で上書きしてもOK） */
+button {
+    font-family: inherit;
+}
+
+/* フォーム部品の共通（ページCSSで調整する前提） */
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 14px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #c7bbb1;
+}

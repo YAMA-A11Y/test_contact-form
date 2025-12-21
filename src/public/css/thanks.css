@@ -1,0 +1,68 @@
+.thanks {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 16px;
+}
+
+.thanks__content {
+    position: relative;
+    text-align: center;
+    padding: 40px 24px;
+}
+
+.thanks__content::before {
+    content: "Thank you";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: clamp(80px, 14vw, 180px);
+    font-weight: 700;
+    color: #d8d1c8;
+    opacity: 0.22;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+}
+
+.thanks__heading,
+.thanks__button {
+    position: relative;
+    z-index: 1;
+}
+
+.thanks__heading h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #6b5b4f;
+}
+
+.thanks__button a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 38px;
+    min-width: 90px;
+    padding: 0 16px;
+
+    background: #8b7a6a;
+    color: #fff;
+    text-decoration: none;
+
+    border-radius: 2px;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+}
+
+.thanks__button a:hover {
+    opacity: 0.9;
+}
