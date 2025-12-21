@@ -1,17 +1,14 @@
-/* common.css */
-
-/* 全体の基本 */
 body {
     font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
     color: #6b5b4f;
     background-color: #ffffff;
 }
 
-/* ヘッダー */
 header {
     text-align: center;
     padding: 24px 0 10px;
     border-bottom: 1px solid #eee;
+    position: relative;
 }
 
 header h1 {
@@ -22,12 +19,29 @@ header h1 {
     font-size: 26px;
 }
 
-/* メイン全体 */
+.header__register {
+    position: absolute;
+    right: 24px;
+    top: 28px;
+
+    font-size: 12px;
+    color: #b9aa9c;
+    background-color: #f7f5f3;
+    text-decoration: none;
+    border: 1px solid #d8d1c8;
+    padding: 4px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+}
+
+.header__register:hover {
+    opacity: 0.85;
+}
+
 main {
     padding: 24px 16px 60px;
 }
 
-/* 見出し（Contact / Confirm のh2） */
 h2 {
     text-align: center;
     margin: 0 0 24px;
@@ -36,19 +50,16 @@ h2 {
     color: #b7a79a;
 }
 
-/* 必須マーク */
 .required {
     color: #d9534f;
     font-size: 0.9em;
     margin-left: 6px;
 }
 
-/* ボタン共通（ページCSS側で上書きしてもOK） */
 button {
     font-family: inherit;
 }
 
-/* フォーム部品の共通（ページCSSで調整する前提） */
 input,
 select,
 textarea {

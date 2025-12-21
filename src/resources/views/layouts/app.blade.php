@@ -12,8 +12,9 @@
 </head>
 
 <body>
-    <header>
-        <h1>FashionablyLate</h1>
+    <header class="header">
+        <h1 class="header__logo">FashionablyLate</h1>
+        @yield('header-right')
     </header>
     
     <main>

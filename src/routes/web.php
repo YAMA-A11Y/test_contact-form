@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,7 @@ Route::get('/thanks', [ContactController::class, 'thanks'])->name('contact.thank
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store']);
 Route::post('login', [AuthenticatedSessionController::class, 'store']);
-Route::post('logout', [AuthenticatedSessionController::class, 'destroy']);
+Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+Route::middleware('auth')->prefix('admin')->group(function () {
+    Route::get('/', [AdminContactController::class, 'index'])->name('admin.contacts.index');
+    });
