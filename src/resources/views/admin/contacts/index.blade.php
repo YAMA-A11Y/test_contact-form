@@ -18,12 +18,14 @@
   </div>
 
   <form method="GET" action="{{ url('/admin') }}" class="admin-search">
-    <div class="admin-search__row">
-      <input type="text" name="keyword" value="{{ request('keyword') }}" placeholder="名前やメールアドレスを入力してください" class="admin-search__input">
+    <div class="admin-search__row admin-search__row--main">
+      <input
+        type="text"
+        name="keyword"
+        value="{{ request('keyword') }}"
+        placeholder="名前やメールアドレスを入力してください"
+        class="admin-search__input">
 
-    </div>
-
-    <div class="admin-search__row">
       <select name="gender" class="admin-search__select">
         <option value="">性別</option>
         <option value="all" {{ request('gender') === 'all' ? 'selected' : '' }}>全て</option>
@@ -37,17 +39,24 @@
         <option value="all" {{ request('category_id') === 'all' ? 'selected' : '' }}>全て</option>
         @foreach($categories as $category)
           <option value="{{ $category->id }}" {{ (string)request('category_id') === (string)$category->id ? 'selected' : '' }}>
-            {{ $category->content }}
+          {{ $category->content }}
           </option>
         @endforeach
       </select>
 
       <input type="date" name="date" value="{{ request('date') }}" class="admin-search__date">
+
+      <button type="submit" class="admin-search__btn">検索</button>
+
+      <a href="{{ url('/admin') }}" class="admin-search__reset">リセット</a>
     </div>
 
-    <div class="admin-search__row">
-      <button type="submit" class="admin-search__btn">検索</button>
-      <a href="{{ url('/admin') }}" class="admin-search__reset">リセット</a>
+    <div class="admin-search__row admin-search__row--export">
+      <a href="{{ route('admin.contacts.export', request()->query()) }}" class="admin-search__export">エクスポート</a>
+
+      <div class="admin-search__pager">
+      {{ $contacts->links() }}
+      </div>
     </div>
   </form>
 
@@ -108,10 +117,6 @@
       </tbody>
     </table>
   </div>
-
-  <div class="admin__pagination">
-    {{ $contacts->links() }}
-  </div>
 </div>
 
 <div class="modal js-modal" aria-hidden="true">
@@ -120,18 +125,16 @@
   <div class="modal__content" role="dialog" aria-modal="true">
     <button type="button" class="modal__close js-close-modal">×</button>
 
-    <h3 class="modal__title">お問い合わせ詳細</h3>
-
     <table class="modal-table">
       <tr><th>お名前</th><td class="js-m-name"></td></tr>
       <tr><th>性別</th><td class="js-m-gender"></td></tr>
-      <tr><th>メール</th><td class="js-m-email"></td></tr>
+      <tr><th>メールアドレス</th><td class="js-m-email"></td></tr>
       <tr><th>電話番号</th><td class="js-m-tel"></td></tr>
       <tr><th>住所</th><td class="js-m-address"></td></tr>
       <tr><th>建物名</th><td class="js-m-building"></td></tr>
-      <tr><th>種類</th><td class="js-m-category"></td></tr>
-      <tr><th>内容</th><td class="js-m-detail" style="white-space: pre-wrap;"></td></tr>
-      <tr><th>送信日時</th><td class="js-m-created"></td></tr>
+      <tr><th>お問い合わせの種類</th><td class="js-m-category"></td></tr>
+      <tr><th>お問い合わせ内容</th><td class="js-m-detail" style="white-space: pre-wrap;"></td></tr>
+      {{-- 送信日時は要件により削除 --}}
     </table>
 
     <form method="POST" action="{{ url('/admin/delete') }}" class="modal__delete">
@@ -158,12 +161,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const elBuilding = modal.querySelector('.js-m-building');
   const elCategory = modal.querySelector('.js-m-category');
   const elDetail = modal.querySelector('.js-m-detail');
-  const elCreated = modal.querySelector('.js-m-created');
 
   function genderLabel(val) {
     if (String(val) === '1') return '男性';
     if (String(val) === '2') return '女性';
     return 'その他';
+  }
+
+  function normalizeTel(tel) {
+    return String(tel || '').replace(/-/g, '');
   }
 
   function openModalFromButton(btn) {
@@ -177,12 +183,13 @@ document.addEventListener('DOMContentLoaded', function () {
     elName.textContent = `${btn.dataset.last_name || ''} ${btn.dataset.first_name || ''}`;
     elGender.textContent = genderLabel(btn.dataset.gender);
     elEmail.textContent = btn.dataset.email || '';
-    elTel.textContent = btn.dataset.tel || '';
+
+    elTel.textContent = normalizeTel(btn.dataset.tel);
+
     elAddress.textContent = btn.dataset.address || '';
     elBuilding.textContent = btn.dataset.building || '';
     elCategory.textContent = btn.dataset.category || '';
     elDetail.textContent = btn.dataset.detail || '';
-    elCreated.textContent = btn.dataset.created_at || '';
 
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
