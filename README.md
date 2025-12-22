@@ -44,6 +44,7 @@ php artisan migrate --seed
 - Laravel 8.83.29
 - MySQL 8.0.26
 - nginx 1.21.1
+- Laravel Fortify
 
 ## ER 図
 
@@ -51,4 +52,8 @@ php artisan migrate --seed
 
 ## URL
 
-※ ローカル環境で実行予定
+- お問い合わせフォーム入力ページ：http://localhost/
+- ユーザー登録：http://localhost/register
+- ログイン：http://localhost/login
+- 管理画面：http://localhost/admin
+- phpMyAdmin：http://localhost:8080
