@@ -30,4 +30,6 @@ Route::post('login', [AuthenticatedSessionController::class, 'store']);
 Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', [AdminContactController::class, 'index'])->name('admin.contacts.index');
-    });
+
+    Route::delete('/delete', [AdminContactController::class, 'destroy'])->name('admin.contacts.destroy');
+});
