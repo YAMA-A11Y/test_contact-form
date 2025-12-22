@@ -1,16 +1,8 @@
-/* =========================
-   Admin page
-========================= */
-
 .admin {
     max-width: 980px;
     margin: 0 auto;
     padding: 0 16px;
 }
-
-/* =========================
-   Heading
-========================= */
 
 .admin__heading {
     margin: 10px 0 18px;
@@ -24,10 +16,6 @@
     color: #9a8776;
     font-weight: 400;
 }
-
-/* =========================
-   Search（箱なし・幅だけ揃える）
-========================= */
 
 .admin-search,
 .admin-search * {
@@ -46,7 +34,6 @@
     gap: 10px;
 }
 
-/* 行 */
 .admin-search__row {
     display: flex;
     align-items: center;
@@ -54,13 +41,11 @@
     width: 100%;
 }
 
-/* 1行目（検索条件） */
 .admin-search__row--main {
     width: 100%;
     flex-wrap: nowrap;
 }
 
-/* 入力共通 */
 .admin-search__input,
 .admin-search__select,
 .admin-search__date {
@@ -72,39 +57,31 @@
     outline: none;
 }
 
-/* キーワード：固定幅をやめて、伸び縮みさせる（右端ずれ防止） */
 .admin-search__input {
     width: auto;
-    /* ★固定幅を解除 */
     flex: 1 1 280px;
-    /* ★基本280px、狭い時は縮む */
     min-width: 220px;
-    /* ★これ以下になりにくくする */
     padding: 0 10px;
 }
 
-/* 性別（狭く） */
 .admin-search select[name="gender"] {
     width: 90px;
     padding: 0 8px;
     flex: 0 0 auto;
 }
 
-/* お問い合わせ種類（広く） */
 .admin-search select[name="category_id"] {
     width: 220px;
     padding: 0 8px;
     flex: 0 0 auto;
 }
 
-/* 日付 */
 .admin-search__date {
     width: 140px;
     padding: 0 8px;
     flex: 0 0 auto;
 }
 
-/* 検索ボタン */
 .admin-search__btn {
     height: 36px;
     padding: 0 14px;
@@ -116,14 +93,12 @@
     cursor: pointer;
     white-space: nowrap;
     flex: 0 0 auto;
-    /* ★つぶれ防止 */
 }
 
 .admin-search__btn:hover {
     opacity: 0.9;
 }
 
-/* リセット（aをボタン風） */
 .admin-search__reset {
     height: 36px;
     padding: 0 14px;
@@ -138,16 +113,11 @@
     text-decoration: none;
     white-space: nowrap;
     flex: 0 0 auto;
-    /* ★つぶれ防止 */
 }
 
 .admin-search__reset:hover {
     opacity: 0.9;
 }
-
-/* =========================
-   Export + Pagination row
-========================= */
 
 .admin-search__row--export {
     display: flex;
@@ -156,7 +126,6 @@
     width: 100%;
 }
 
-/* エクスポート */
 .admin-search__export {
     height: 32px;
     padding: 0 14px;
@@ -175,7 +144,6 @@
     opacity: 0.9;
 }
 
-/* ページネーション右寄せ */
 .admin-search__pager {
     margin-left: auto;
     display: flex;
@@ -183,25 +151,18 @@
     justify-content: flex-end;
 }
 
-/* =========================
-   Pagination（数字のみ）
-========================= */
-
 .admin-search__pager nav {
     justify-content: flex-end;
 }
 
-/* スマホ用 Prev / Next ブロック非表示 */
 .admin-search__pager nav>div.sm\:hidden {
     display: none !important;
 }
 
-/* PC用 Showing 側非表示 */
 .admin-search__pager nav>div.hidden.sm\:flex>div:first-child {
     display: none !important;
 }
 
-/* Prev / Next リンク非表示（保険） */
 .admin-search__pager a[rel="prev"],
 .admin-search__pager a[rel="next"],
 .admin-search__pager a[aria-label*="Previous"],
@@ -210,7 +171,6 @@
     display: none !important;
 }
 
-/* 数字リンク */
 .admin-search__pager a,
 .admin-search__pager span {
     min-width: 26px;
@@ -238,14 +198,9 @@
     background: #f3eee8;
 }
 
-/* 下部ページネーションは使わない */
 .admin__pagination {
     display: none;
 }
-
-/* =========================
-   Table
-========================= */
 
 .admin__table-wrap {
     background: #fff;
@@ -279,7 +234,6 @@
     background: #f3eee8;
 }
 
-/* 性別列 */
 .admin-table th:nth-child(2),
 .admin-table td:nth-child(2) {
     min-width: 70px;
@@ -287,7 +241,6 @@
     white-space: nowrap;
 }
 
-/* 詳細列 */
 .admin-table th:last-child,
 .admin-table td:last-child {
     width: 90px;
@@ -295,7 +248,6 @@
     white-space: nowrap;
 }
 
-/* 詳細ボタン */
 .admin-table__detail-btn {
     height: 28px;
     padding: 0 10px;
@@ -310,10 +262,6 @@
 .admin-table__detail-btn:hover {
     background: #f3eee8;
 }
-
-/* =========================
-   Modal（添付画像寄せ）
-========================= */
 
 .modal {
     display: none;
@@ -343,7 +291,6 @@
     padding: 44px 70px 34px;
 }
 
-/* ×中央揃え */
 .modal__close {
     position: absolute;
     right: 18px;
@@ -368,7 +315,6 @@
     background: #f3eee8;
 }
 
-/* モーダル内テーブル */
 .modal-table {
     width: 100%;
     border-collapse: collapse;
@@ -399,7 +345,6 @@
     word-break: break-word;
 }
 
-/* 削除ボタン */
 .modal__delete {
     margin-top: 26px;
     display: flex;
@@ -420,10 +365,6 @@
 .modal__delete-btn:hover {
     filter: brightness(0.96);
 }
-
-/* =========================
-   Responsive
-========================= */
 
 @media (max-width: 900px) {
     .admin-search__row--main {

@@ -17,23 +17,22 @@
             <div class="form__group-title">
                 <label>お名前 <span class="required">※</span></label>
             </div>
-            <div class="form__input--text">
-                <div class="form__input-item">
-                    <input type="text" name="last_name" placeholder="例：山田" value="{{ old('last_name') }}">
-                </div>
-                <div class="form__error">
-                    @error('first_name')
-                    {{ $message }}
-                    @enderror
-                </div>
 
-                <div class="form__input-item">
-                    <input type="text" name="first_name" placeholder="例：太郎" value="{{ old('first_name') }}">
-                </div>
-                <div class="form__error">
-                    @error('last_name')
-                    {{ $message }}
-                    @enderror
+            <div class="form__group-content">
+                <div class="form__input--text">
+                    <div class="form__input-item">
+                        <input type="text" name="last_name" placeholder="例：山田" value="{{ old('last_name') }}">
+                        @error('last_name')
+                            <p class="form__error">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form__input-item">
+                        <input type="text" name="first_name" placeholder="例：太郎" value="{{ old('first_name') }}">
+                        @error('first_name')
+                            <p class="form__error">{{ $message }}</p>
+                        @enderror
+                    </div>
                 </div>
             </div>
         </div>

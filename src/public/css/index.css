@@ -11,7 +11,7 @@
     display: grid;
     grid-template-columns: 220px 1fr;
     gap: 18px;
-    padding: 12px 0;
+    padding: 10px 0;
     align-items: start;
 }
 
@@ -23,6 +23,7 @@
 
 .form__group-content {
     width: 100%;
+    min-width: 0;
 }
 
 .form__input--text input,
@@ -45,10 +46,16 @@
 .form__input--text {
     display: flex;
     gap: 12px;
+    width: 100%;
 }
 
-.form__input--text input {
+.form__input--text .form__input-item {
     flex: 1;
+    min-width: 0;
+}
+
+.form__input--text .form__input-item input {
+    width: 100%;
 }
 
 .form__input-item {
@@ -66,10 +73,17 @@
     display: flex;
     align-items: flex-start;
     gap: 8px;
+    width: 100%;
+    flex-wrap: nowrap;
 }
 
-.form__input--tel input {
-    width: 120px;
+.form__input--tel .form__input-item {
+    flex: 1;
+    min-width: 0;
+}
+
+.form__input--tel .form__input-item input {
+    width: 100%;
     border: 1px solid #e8e3de;
     background: #f6f4f2;
     padding: 10px 12px;
@@ -78,6 +92,8 @@
 }
 
 .form__hyphen {
+    flex: 0 0 auto;
+    line-height: 42px;
     color: #b7a79a;
 }
 
@@ -110,7 +126,7 @@
 
 .form__input--textarea textarea {
     min-height: 140px;
-    resize: vertical;
+    resize: none;
 }
 
 .form__button {

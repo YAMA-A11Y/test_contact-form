@@ -12,10 +12,12 @@
 </head>
 
 <body>
-    <header class="header">
-        <h1 class="header__logo">FashionablyLate</h1>
-        @yield('header-right')
-    </header>
+    @unless(View::hasSection('no-header'))
+        <header class="header">
+            <h1 class="header__logo">FashionablyLate</h1>
+            @yield('header-right')
+        </header>
+    @endunless
     
     <main>
         @yield('content')

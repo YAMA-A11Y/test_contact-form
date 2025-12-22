@@ -1,7 +1,17 @@
+html,
 body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
     font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
     color: #6b5b4f;
     background-color: #ffffff;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -40,6 +50,8 @@ header h1 {
 
 main {
     padding: 24px 16px 60px;
+    flex: 1;
+    display: flex;
 }
 
 h2 {
